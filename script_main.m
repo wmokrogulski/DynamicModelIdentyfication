@@ -29,9 +29,14 @@ for n=[1e-7 1e-6 1e-5 1e-4]
     [u_meas, y_meas]=measure_signals();
     [Gd, Gdf, Gf]=calculate_parameters(G, Ts, u_meas,y_meas,3);
     [t, y_real, y_est,difference]=measure_difference();
-    difference_plots(i,[2 2],[3,4],'transmitancja 3 rzędu',t, y_real, y_est,difference);
+    difference_plots(i,[2 2],[3,4],sprintf('amp. szumu, %g',namp),t, y_real, y_est,difference);
+    
     i=i+1;
 end
+figure(3);
+sgtitle('transmitancja 3-rzędu');
+figure(4);
+sgtitle('transmitancja 3-rzędu');
 
 
 function difference_plots(curr_plot_number, plot_number, figures, plot_title,t, y_real, y_est,difference)
