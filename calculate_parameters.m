@@ -1,5 +1,4 @@
-function [Gd, Gdf, Gf]=calculate_parameters(G, Ts, u_meas,y_meas, rank_num)
-Gd=c2d(G,Ts); % transmitancja dyskretna do sprawdzenia wyniku
+function [Gdf, Gf]=calculate_parameters(G, Ts, u_meas,y_meas, rank_num)
 A=[];
 for i=1:rank_num
     A=[A, u_meas(i:end-rank_num+i-1)];
