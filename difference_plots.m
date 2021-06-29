@@ -9,14 +9,13 @@ legend('y_{real}','y_{est}');
 grid minor;
 xlabel('t [s]');
 ylabel('y');
-title(sprintf('%s - sygnały wyjściowe',plot_title));
+title(sprintf('%s',plot_title));
 
 figure(figures(2));
 subplot(plot_number(1),plot_number(2),curr_plot_number);
 plot(t,difference);
-fprintf('ISE = %g\n',sum(difference.^2));
 grid minor;
 xlabel('t [s]');
 ylabel('y');
-title(sprintf('%s - różnica sygnałów',plot_title));
+title(sprintf('%s',plot_title));
 end
