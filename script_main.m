@@ -5,7 +5,10 @@ s_type=1; % 3 - skok, 2 - sinus, 1 - impuls prostokatny, 0 - impuls trojkatny
 non=0; % wlacznik szumu (1 gdy wlaczony)
 namp=1e-7; % amplituda szumu
 G=tf([1 2 1],[1 2 5 3]);
-isstable(G)
+if isstable(G)==0
+    disp('uklad jest niestabilny')
+    return
+end
 
 %% Wyznaczenie transmitancji roznych rzedow
 [u_meas, y_meas]=measure_signals();
