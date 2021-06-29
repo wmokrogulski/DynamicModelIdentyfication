@@ -14,6 +14,7 @@ title(sprintf('%s - sygnały wyjściowe',plot_title));
 figure(figures(2));
 subplot(plot_number(1),plot_number(2),curr_plot_number);
 plot(t,difference);
+fprintf('ISE = %g\n',sum(difference.^2));
 grid minor;
 xlabel('t [s]');
 ylabel('y');
