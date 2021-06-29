@@ -1,7 +1,7 @@
 %% inicjalizacja
 Ts=1e-2; % okres probkowania
 
-s_type=3; % 3 - skok, 2 - sinus, 1 - impuls prostokatny, 0 - impuls trojkatny
+s_type=1; % 3 - skok, 2 - sinus, 1 - impuls prostokatny, 0 - impuls trojkatny
 non=0; % wlacznik szumu (1 gdy wlaczony)
 namp=1e-7; % amplituda szumu
 G=tf([1 2 1],[1 2 5 3]);
