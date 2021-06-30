@@ -33,14 +33,10 @@ for s_type=[3 2 1 0]
         fprintf(ise_file,'%s\n',s_type_name');
         fprintf(tf_file,'Ts=%.2g s\n',Ts);
         fprintf(ise_file,'Ts=%.2g s\n',Ts);
-        % fclose(tf_file);
-        % fclose(ise_file);
 
 
 
-        %% Wyznaczenie transmitancji roznych rzedow
-        % tf_file=fopen('transmitancje.txt','a');
-        % ise_file=fopen('ise.txt','a');
+        % Wyznaczenie transmitancji roznych rzedow
         [u_meas, y_meas]=measure_signals();
         disp('transmitancja rzeczywista')
         fprintf(tf_file,'transmitancja rzeczywista\n');
@@ -49,7 +45,6 @@ for s_type=[3 2 1 0]
         Gd
         fprintf(tf_file,'transmitancja ciągła\n');
         fprintf(tf_file,'%s\n',tf_to_latex(G));
-        % fclose(fid);
         G
         disp('transmitancja 4-rzędu');
         fprintf(tf_file,'transmitancja 4-rzędu\n');
@@ -65,7 +60,6 @@ for s_type=[3 2 1 0]
         Gdf
         fprintf(tf_file,'transmitancja ciągła\n');
         fprintf(tf_file,'%s\n',tf_to_latex(Gf));
-        % fclose(fid);
         Gf
 
         disp('transmitancja 3-rzędu');
@@ -81,7 +75,6 @@ for s_type=[3 2 1 0]
         Gdf
         fprintf(tf_file,'transmitancja ciągła\n');
         fprintf(tf_file,'%s\n',tf_to_latex(Gf));
-        % fclose(fid);
         Gf
 
         disp('transmitancja 2-rzędu');
@@ -98,7 +91,6 @@ for s_type=[3 2 1 0]
         Gdf
         fprintf(tf_file,'transmitancja ciągła\n');
         fprintf(tf_file,'%s\n',tf_to_latex(Gf));
-        % fclose(fid);
         Gf
 
         disp('transmitancja 1-rzędu');
@@ -117,7 +109,7 @@ for s_type=[3 2 1 0]
         Gf
 
 
-        %% badanie dla roznych poziomow szumu
+        % badanie dla roznych poziomow szumu
         i=1;
         non=1;
         for n=[1e-7 1e-6 1e-5 1e-4]
@@ -144,19 +136,19 @@ for s_type=[3 2 1 0]
         fig=figure(1);
         sgtitle(sprintf('%s Ts = %.2g s porównanie odpowiedzi dla różnych transmitancji',s_type_name,Ts));
         set(fig, 'Position', get(0, 'Screensize'));
-        saveas(fig,sprintf('%s_%.2g_por_odp_dla_transm.png',strrep(s_type_name,' ','_'),Ts))
+        saveas(fig,sprintf('%s_Ts_%.2g_por_odp_dla_transm.png',strrep(s_type_name,' ','_'),Ts))
         fig=figure(2);
         sgtitle(sprintf('%s Ts = %.2g s różnica sygnałów dla różnych transmitancji',s_type_name,Ts));
         set(fig, 'Position', get(0, 'Screensize'));
-        saveas(fig,sprintf('%s_%.2g_roz_dla_transm.png',strrep(s_type_name,' ','_'),Ts))
+        saveas(fig,sprintf('%s_Ts_%.2g_roz_dla_transm.png',strrep(s_type_name,' ','_'),Ts))
         fig=figure(3);
         sgtitle(sprintf('%s Ts = %.2g s porównanie odpowiedzi dla różnych amplitud szumu (tr. 3-rzędu)',s_type_name,Ts));
         set(fig, 'Position', get(0, 'Screensize'));
-        saveas(fig,sprintf('%s_%.2g_por_odp_dla_szumu.png',strrep(s_type_name,' ','_'),Ts))
+        saveas(fig,sprintf('%s_Ts_%.2g_por_odp_dla_szumu.png',strrep(s_type_name,' ','_'),Ts))
         fig=figure(4);
         sgtitle(sprintf('%s Ts = %.2g s różnica sygnałów dla różnych amplitud szumu (tr. 3-rzędu)',s_type_name,Ts));
         set(fig, 'Position', get(0, 'Screensize'));
-        saveas(fig,sprintf('%s_%.2g_por_roz_dla_szumu.png',strrep(s_type_name,' ','_'),Ts))
+        saveas(fig,sprintf('%s_Ts_%.2g_por_roz_dla_szumu.png',strrep(s_type_name,' ','_'),Ts))
         cd '..';
 
     end
